@@ -1,0 +1,17 @@
+{
+  "dishesTypes": [
+    {
+      "name": "mainCourses",
+      "recipes": [
+        {
+          "name": "spaghetti bolognese",
+          "description": "Asddasdad"
+        },
+        {
+          "name": "spaghetti carbonara",
+          "description": "LKjjfjlfljk"
+        }
+      ]
+    }
+  ]
+}

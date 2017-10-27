@@ -10,7 +10,7 @@ import com.shamruk.frompeppertoheart.R
 import com.shamruk.frompeppertoheart.model.DishType
 import java.text.FieldPosition
 
-class DishTypeGridViewAdapter(context: Context, private var dishesTypes: List<DishType>) : BaseAdapter() {
+class DishTypeGridViewAdapter(context: Context, private var dishesTypes: ArrayList<DishType>) : BaseAdapter() {
 
     private var layoutInflater: LayoutInflater
 

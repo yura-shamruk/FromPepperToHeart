@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.shamruk.frompeppertoheart.MainActivity
 import com.shamruk.frompeppertoheart.R
 import com.shamruk.frompeppertoheart.adapter.DishTypeGridViewAdapter
 import com.shamruk.frompeppertoheart.model.DishType
@@ -24,10 +25,6 @@ class DishesTypesScreen : MainActivityFragment() {
         }
     }
 
-    private val dishesTypes = listOf(DishType("dish1"),
-            DishType("dish1"), DishType("dish1"),
-            DishType("dish1"), DishType("dish1"),
-            DishType("dish1"), DishType("dish1"))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater!!.inflate(R.layout.fragment_dishes_types, container, false)
@@ -35,7 +32,12 @@ class DishesTypesScreen : MainActivityFragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dishTypeGridViewAdapter = DishTypeGridViewAdapter(context, dishesTypes)
-        dishesTypesGridView.adapter = dishTypeGridViewAdapter
+        val dataRootManager = (activity as MainActivity).dataRootManager
+
+        val dishesTypes = dataRootManager.getDishesTypes()
+        if(dishesTypes != null) {
+            dishTypeGridViewAdapter = DishTypeGridViewAdapter(context, dishesTypes)
+            dishesTypesGridView.adapter = dishTypeGridViewAdapter
+        }
     }
 }

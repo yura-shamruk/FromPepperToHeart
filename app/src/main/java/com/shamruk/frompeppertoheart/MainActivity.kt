@@ -7,11 +7,18 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
+import com.shamruk.frompeppertoheart.manager.DataRootManager
+import com.shamruk.frompeppertoheart.model.DataRoot
+import com.shamruk.frompeppertoheart.repository.RecipesRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class MainActivity : FragmentNavigationActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private val recipesRepository = RecipesRepository()
+
+    lateinit var dataRootManager: DataRootManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +36,10 @@ class MainActivity : FragmentNavigationActivity(), NavigationView.OnNavigationIt
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
-
+        recipesRepository.loadDataRoot(this)
+        recipesRepository.dataRoot?.let { dataRootManager = DataRootManager(it)
+            dataRootManager
+        }
         showDishTypesScreen()
     }
 
