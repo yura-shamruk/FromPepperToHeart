@@ -1,6 +1,9 @@
 package com.shamruk.frompeppertoheart.ui
 
 import android.app.Fragment
+import android.os.Bundle
+import android.view.View
+import com.shamruk.frompeppertoheart.BackButtonListener
 import com.shamruk.frompeppertoheart.MainActivity
 
 
@@ -10,23 +13,26 @@ import com.shamruk.frompeppertoheart.MainActivity
 /**
  * Created by yura on 10/12/17.
  */
-open class MainActivityFragment : Fragment() {
+open class MainActivityFragment : Fragment(), BackButtonListener {
 
+
+    override fun onStart() {
+        super.onStart()
+        getMainActivity().setBackButtonListener(this)
+    }
 
     protected fun goHome() {
         getMainActivity().supportFragmentManager.popBackStack(DishesTypesScreen.Constants.TAG, 0)
     }
 
-    protected fun onBackPressed() {
+    override fun onBackPressed() {
         goBack()
     }
 
-    protected fun goBack() {
+    private fun goBack() {
         activity.fragmentManager.popBackStack()
     }
 
-    protected fun getMainActivity(): MainActivity {
-        return activity as MainActivity
-    }
+    protected fun getMainActivity(): MainActivity = activity as MainActivity
 
 }

@@ -1,7 +1,20 @@
 {
   "dishesTypes": [
     {
-      "name": "mainCourses",
+      "name": "Main Courses",
+      "recipes": [
+        {
+          "name": "spaghetti bolognese",
+          "description": "Asddasdad"
+        },
+        {
+          "name": "spaghetti carbonara",
+          "description": "LKjjfjlfljk"
+        }
+      ]
+    },
+    {
+      "name": "Salads",
       "recipes": [
         {
           "name": "spaghetti bolognese",

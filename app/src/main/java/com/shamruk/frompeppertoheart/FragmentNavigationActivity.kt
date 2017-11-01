@@ -3,6 +3,7 @@ package com.shamruk.frompeppertoheart
 import android.app.Fragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.shamruk.frompeppertoheart.ui.DishesListScreen
 import com.shamruk.frompeppertoheart.ui.DishesTypesScreen
 
 
@@ -50,6 +51,9 @@ abstract class FragmentNavigationActivity : AppCompatActivity() {
 
     fun showDishTypesScreen(){
         showScreen(DishesTypesScreen(), DishesTypesScreen.Constants.TAG)
+    }
+    fun showDishesListScreen(){
+        showScreen(DishesListScreen(), DishesListScreen.Constants.TAG)
     }
 
     fun showGroceriesScreen(){
